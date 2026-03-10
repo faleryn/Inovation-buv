@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Navigator untuk Tuna Netra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Drone Navigator untuk Tuna Netra</h1>
+        <p class="tagline">Panduan jalan cerdas untuk kehidupan sehari-hari</p>
+    </header>
+    <main>
+        <section id="problem" class="card">
+            <h2>Problem</h2>
+            <p id="problem-text"></p>
+        </section>
+        <section id="solution" class="card">
+            <h2>Solusi</h2>
+            <p id="solution-text"></p>
+        </section>
+        <section id="how-it-works" class="card">
+            <h2>Cara Kerja</h2>
+            <p id="how-text"></p>
+            <button id="start-sim">Mulai Simulasi</button>
+            <button id="add-obstacle">Tambah Rintangan</button>
+            <div id="battery-bar" class="battery-bar"><div id="battery-level"></div></div>
+            <div id="simulation" class="simulation">
+                <div id="drone" class="drone">🚁</div>
+                <div id="warning" class="warning"></div>
+            </div>
+        </section>
+        <section id="features" class="card">
+            <h2>Fitur</h2>
+            <ul id="features-list"></ul>
+        </section>
+        <section id="battery" class="card">
+            <h2>Status Baterai</h2>
+            <p id="battery-text">100%</p>
+            <button id="recharge">Re-charge (Powerbank)</button>
+        </section>
+        <section id="emergency" class="card">
+            <h2>Darurat</h2>
+            <button id="report-missing">Laporkan Orang Hilang</button>
+            <p id="emergency-text"></p>
+        </section>
+        <section id="gps" class="card">
+            <h2>GPS / Lokasi</h2>
+            <button id="get-location">Ambil Lokasi Saat Ini</button>
+            <p id="location-text"></p>
+        </section>
+        <section id="voice" class="card">
+            <h2>Voice Navigation</h2>
+            <button id="speak-instruction">Ucapkan Instruksi</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Drone Navigator</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
