@@ -1,7 +1,6 @@
-// data awal yang mendeskripsikan masalah dan fitur
 const droneApp = {
     problem: "Banyak Tuna Netra yang kesulitan dalam kegiatan sehari hari",
-    solution: "Memberikan panduan jalan untuk Tuna Netra dalam beraktivitas",
+    solution: "Memberikan panduan jalan untuk Tuna Netra dalam beraktivitas. \nSolusi panduan jalan bagi tunanetra yang komprehensif harus dimulai dari penguatan infrastruktur fisik yang terstandarisasi. \nHal ini melibatkan pemasangan guiding block atau ubin taktil secara konsisten di seluruh area publik, di mana pola garis digunakan untuk memandu arah jalan dan pola titik sebagai peringatan adanya hambatan atau persimpangan. Agar efektif, jalur ini harus bebas dari gangguan permanen seperti kendaraan parkir atau pedagang kaki lima, serta didukung oleh fasilitas penyeberangan yang dilengkapi Audible Traffic Signals (lampu lalu lintas bersuara) untuk menjamin keamanan saat berpindah jalur di jalan raya. Selanjutnya, solusi ini mengintegrasikan teknologi asistif mutakhir sebagai instrumen navigasi real-time. Penggunaan tongkat pintar (smart cane) yang dilengkapi sensor ultrasonik memungkinkan pengguna mendeteksi hambatan yang menggantung di udara yang tidak terjangkau tongkat konvensional. Di sisi digital, aplikasi berbasis kecerdasan buatan (AI) berperan sebagai narator lingkungan yang memberikan informasi lokasi melalui audio, mengenali objek di sekitar, hingga membacakan teks penunjuk jalan. Integrasi ini menciptakan sistem navigasi berlapis yang memadukan kepekaan fisik dengan akurasi data digital. Di balik kecanggihan alat tersebut, kapasitas individu dan dukungan sosial menjadi pilar penentu keberhasilan mobilitas. Para penyandang tunanetra perlu dibekali dengan pelatihan Orientasi dan Mobilitas (O&M) yang intensif untuk mempertajam kemampuan mental mapping dan pemanfaatan indra pendengaran sebagai alat navigasi alami. Secara paralel, masyarakat umum perlu diedukasi mengenai etika pendampingan agar mampu memberikan bantuan yang tepat tanpa merampas kemandirian tunanetra. Sinergi antara kebijakan pemerintah dalam tata kota, inovasi teknologi, dan inklusi sosial inilah yang membentuk ekosistem mobilitas yang benar-benar aksesibel dan aman.",
     how: "Drone terbang di atas pengguna, kemudian melakukan object detection untuk menentukan jalur aman, ketika ada halangan atau rintangan drone akan memberi peringatan dan intruksi sehingga pengguna mengikuti arahan dari drone untuk melewati rintangan tersebut.",
     features: [
         "Object detection",
@@ -31,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('speak-instruction').addEventListener('click', speakInstruction);
 });
 
-// simulasi sederhana menggerakkan drone dan menampilkan peringatan
 function startSimulation() {
     const drone = document.getElementById('drone');
     const warning = document.getElementById('warning');
@@ -44,8 +42,7 @@ function startSimulation() {
         if (position >= 200 && position < 220) {
             warning.textContent = 'Rintangan terdeteksi! Ikuti instruksi.';
             warning.style.display = 'block';
-            // suara peringatan jika browser mendukung
-            speak('Rintangan terdeteksi. Belok kanan.');
+             speak('Rintangan terdeteksi. Belok kanan.');
         }
         if (position >= 400) {
             clearInterval(interval);

@@ -5,6 +5,9 @@ body {
     background: #f0f4f8;
     color: #333;
 }
+.rata-kanan-kiri {
+    text-align: justify;
+}
 header {
     background: #005f73;
     color: #fff;
@@ -84,6 +87,10 @@ footer {
     border-radius: 5px;
     overflow: hidden;
 }
+.rata-kanan-kiri {
+  text-align: justify;
+}
+
 .battery-bar #battery-level {
     height: 100%;
     width: 100%;
