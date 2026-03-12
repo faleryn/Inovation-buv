@@ -33,20 +33,36 @@ body::before{
 
 /* HEADER WEB */
 header{
+    position: relative;
     text-align:center;
     padding:3rem 1rem;
-    background:linear-gradient(90deg,#00c9ff,#92fe9d);
-    color:#000;
-    background-image: url('photo-1507582020474-9a35b7d455d9.avif');
-    backdrop-filter: blur(60px);          /* Efek blur untuk gambar latar */
-    background-size: cover;      /* Memastikan gambar menutupi seluruh area */
-    background-position: center; /* Memastikan bagian tengah gambar selalu terlihat */
     height: 400px;               /* Mengatur tinggi header */
     display: flex;               /* Opsional: Untuk memposisikan teks di tengah */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+header::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: 
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('photo-1507582020474-9a35b7d455d9.avif');
+    background-size: cover;      /* Memastikan gambar menutupi seluruh area */
+    background-position: center; /* Memastikan bagian tengah gambar selalu terlihat */
+    filter: blur(3px);           /* Efek blur untuk background */
+    z-index: 1;
+}
+
+header > * {
+    position: relative;
+    z-index: 2;
 }
 
 /* TAGLINE DRONE */
