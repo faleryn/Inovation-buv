@@ -30,6 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('speak-instruction').addEventListener('click', speakInstruction);
 });
 
+const obstacles = [
+    { position: 200, message: "Rintangan terdeteksi. Belok kanan." },
+    { position: 350, message: "Rintangan terdeteksi. Belok kiri." },
+    { position: 500, message: "Rintangan terdeteksi. Berhenti sebentar." }
+];
+
 function startSimulation() {
     const drone = document.getElementById('drone');
     const warning = document.getElementById('warning');
@@ -49,11 +55,14 @@ function startSimulation() {
         drone.style.left = position + 'px';
 
         // cek rintangan
-        if (position >= 200 && position < 220) {
-            warning.textContent = 'Rintangan terdeteksi! Ikuti instruksi.';
-            warning.style.display = 'block';
-            speak('Rintangan terdeteksi. Belok kanan.');
-        }
+      obstacles.forEach(obstacle => {
+            if (position >= obstacle.position && position < obstacle.position + 20) {
+                warning.textContent = 'Rintangan terdeteksi! Ikuti instruksi.';
+                warning.style.display = 'block';
+                speak(obstacle.message);
+            }
+        });
+
 
         // cek baterai
         if (batteryLevel <= 20) {
@@ -74,7 +83,7 @@ function startSimulation() {
             warning.style.display = 'block';
             speak('Baterai habis, drone mendarat darurat.');
         }
-    }, 1000);
+    }, intervalTime);
 }
 
 
