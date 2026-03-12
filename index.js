@@ -37,15 +37,29 @@ const obstacles = [
 ];
 
 function startSimulation() {
+    const simulation = document.getElementById('simulation');
     const drone = document.getElementById('drone');
     const warning = document.getElementById('warning');
     const batteryBar = document.getElementById('battery');
     let position = 0;
     let batteryLevel = 100; // mulai dari 100%
      const drainRate = 2;       // baterai turun 2% tiap detik
-    const intervalTime = 1000; 
+    const intervalTime = 1000;
 
     warning.style.display = 'none';
+
+    // hapus obstacle lama
+    const oldObstacles = simulation.querySelectorAll('.obstacle');
+    oldObstacles.forEach(obs => obs.remove());
+
+    // tambahkan obstacle visual
+    obstacles.forEach(obstacle => {
+        const obstacleEl = document.createElement('div');
+        obstacleEl.className = 'obstacle';
+        obstacleEl.textContent = '✕';
+        obstacleEl.style.left = obstacle.position + 'px';
+        simulation.appendChild(obstacleEl);
+    });
 
     const interval = setInterval(() => {
         position += 20;
