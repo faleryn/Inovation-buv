@@ -33,24 +33,50 @@ document.addEventListener('DOMContentLoaded', () => {
 function startSimulation() {
     const drone = document.getElementById('drone');
     const warning = document.getElementById('warning');
+    const batteryBar = document.getElementById('battery');
     let position = 0;
+    let batteryLevel = 100; // mulai dari 100%
+     const drainRate = 2;       // baterai turun 2% tiap detik
+    const intervalTime = 1000; 
+
     warning.style.display = 'none';
 
     const interval = setInterval(() => {
         position += 20;
+        batteryLevel -= drainRate;
+        batteryBar.value = batteryLevel;
+
         drone.style.left = position + 'px';
+
+        // cek rintangan
         if (position >= 200 && position < 220) {
             warning.textContent = 'Rintangan terdeteksi! Ikuti instruksi.';
             warning.style.display = 'block';
-             speak('Rintangan terdeteksi. Belok kanan.');
+            speak('Rintangan terdeteksi. Belok kanan.');
         }
-        if (position >= 400) {
+
+        // cek baterai
+        if (batteryLevel <= 20) {
+            warning.textContent = 'Baterai hampir habis!';
+            warning.style.display = 'block';
+            speak('Baterai drone hampir habis, segera isi ulang.');
+        }
+
+        // selesai simulasi
+        if (position >= 600) {
             clearInterval(interval);
             warning.style.display = 'none';
             speak('Simulasi selesai.');
         }
-    }, 500);
+        if (batteryLevel <= 0) {
+            clearInterval(interval);
+            warning.textContent = 'Drone berhenti karena baterai habis!';
+            warning.style.display = 'block';
+            speak('Baterai habis, drone mendarat darurat.');
+        }
+    }, 1000);
 }
+
 
 // geolokasi
 function showLocation() {
