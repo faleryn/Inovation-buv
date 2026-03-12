@@ -5,6 +5,9 @@
     box-sizing:border-box;
 }
 
+.rata-kanan-kiri {
+  text-align: justify;
+}
 
 /* BODY UTAMA WEB */
 body{
